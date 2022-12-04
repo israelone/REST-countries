@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "REST-countries-API"
+  "defaultProject": "REST-countries-API",
+  "cli": {
+    "analytics": false
+  }
 }
