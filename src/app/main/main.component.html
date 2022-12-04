@@ -1,0 +1,40 @@
+<section [ngClass]="{ individualView: individualView }">
+  <ng-container *ngIf="individualView; else multipleView">
+    <div>
+      <div class="back-button-container">
+        <button (click)="goBackToMultipleView()">Back</button>
+      </div>
+    </div>
+    <div class="individual-country-container">
+      <app-individual-country-view> </app-individual-country-view>
+    </div>
+  </ng-container>
+  <ng-template #multipleView>
+    <div>
+      <div class="search-input-container">
+        <i></i
+        ><input
+          placeholder="Search for a country..."
+          (input)="getCountriesByName($event.target)"
+        />
+      </div>
+      <div class="filter-container">
+        <div class="filter-label">
+          <label for="countries">Filter by region:</label
+          ><i (click)="showOptionsToggle()">Arrow</i>
+        </div>
+        <div [ngClass]="{ showOptions: !showOptions }" class="filter-options">
+          <ul (click)="selectOption($event.target)">
+            <li>Africa</li>
+            <li>Americas</li>
+            <li>Asia</li>
+            <li>Europe</li>
+            <li>Oceania</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="countries-container" *ngFor="let country of countriesSelected">
+      <app-country-card [countryData]="country"></app-country-card></div
+  ></ng-template>
+</section>

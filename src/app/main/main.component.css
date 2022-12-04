@@ -1,0 +1,92 @@
+section {
+  background-color: hsl(0, 0%, 98%);
+  padding-top: 10px;
+  padding: 25px;
+}
+
+.search-input-container {
+  width: 89vw;
+  margin: 20px auto;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  background-color: hsl(0, 0%, 100%);
+  align-items: center;
+  box-shadow: 0px 0px 10px 0px rgb(135 135 135);
+}
+
+.filter-container {
+  width: 53vw;
+  margin: 20px 35px 50px 0;
+  height: 70px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 100%);
+  align-items: center;
+  box-shadow: 0px 0px 10px 0px rgb(135 135 135);
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  font-family: "Nunito Sans";
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.filter-options {
+  background-color: white;
+  position: relative;
+  top: 19px;
+  width: 76%;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgb(135 135 135);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  cursor: pointer;
+  margin: 8px 0;
+  font-weight: 800;
+}
+
+li:hover {
+  background-color: rgb(135 135 135);
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0px 31px;
+  justify-content: space-between;
+}
+
+.showOptions {
+  display: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: white;
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgb(199 199 199);
+}
+
+.individual-country-container {
+  margin-top: 90px;
+}
+
+.individualView {
+  padding: 45px 35px;
+}
