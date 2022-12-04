@@ -1,0 +1,32 @@
+section {
+  width: 70vw;
+  margin: 20px auto 70px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(135, 135, 135, 1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(135, 135, 135, 1);
+  box-shadow: 0px 0px 10px 0px rgba(135, 135, 135, 1);
+}
+
+img {
+  width: 70vw;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px 3px 5px 0px rgb(135 135 135);
+}
+
+.country-information-container {
+  padding: 15px 38px 60px;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+h4 span {
+  font-weight: 300;
+}
