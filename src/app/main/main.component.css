@@ -1,28 +1,26 @@
 section {
-  background-color: hsl(0, 0%, 98%);
   padding-top: 10px;
   padding: 25px;
 }
 
-.search-input-container {
+.search-input {
   width: 89vw;
   margin: 20px auto;
   height: 70px;
   border-radius: 5px;
   display: flex;
-  background-color: hsl(0, 0%, 100%);
   align-items: center;
-  box-shadow: 0px 0px 10px 0px rgb(135 135 135);
+  box-shadow: 0px 0px 10px 0px rgb(215 215 215);
 }
 
-.filter-container {
+.filter-input {
   width: 53vw;
   margin: 20px 35px 50px 0;
   height: 70px;
   border-radius: 5px;
   background-color: hsl(0, 0%, 100%);
   align-items: center;
-  box-shadow: 0px 0px 10px 0px rgb(135 135 135);
+  box-shadow: 0px 0px 10px 0px rgb(215 215 215);
 }
 
 input {
@@ -38,11 +36,11 @@ input:focus-visible {
 .filter-options {
   background-color: white;
   position: relative;
-  top: 19px;
+  top: 6px;
   width: 76%;
   padding: 40px;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px 0px rgb(135 135 135);
+  box-shadow: 0px 0px 10px 0px rgb(215 215 215);
 }
 
 ul {
@@ -58,7 +56,7 @@ li {
 }
 
 li:hover {
-  background-color: rgb(135 135 135);
+  background-color: rgb(215 215 215);
 }
 
 .filter-label {
@@ -80,7 +78,7 @@ button {
   height: 40px;
   width: 80px;
   cursor: pointer;
-  box-shadow: 0px 0px 10px 0px rgb(199 199 199);
+  box-shadow: 0px 0px 10px 0px rgb(215 215 215);
 }
 
 .individual-country-container {
@@ -89,4 +87,43 @@ button {
 
 .individualView {
   padding: 45px 35px;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .inputs-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  section {
+    padding: 40px 80px;
+  }
+
+  .search-input {
+    width: 34vw;
+    margin: 0;
+  }
+  .filter-input {
+    width: 12vw;
+    margin: 0;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  .individualView {
+    padding: 90px 80px;
+  }
 }

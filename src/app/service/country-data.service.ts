@@ -9,11 +9,16 @@ export class CountryDataService {
   url = 'https://restcountries.com/';
   individualView = new BehaviorSubject(false);
   currentCountries = new BehaviorSubject({});
+  selectedMode = new BehaviorSubject('dark');
 
   constructor(private http: HttpClient) {}
 
   public get getSelectedCountries(): Observable<any> {
     return this.currentCountries.asObservable();
+  }
+
+  public get getSelectedMode(): Observable<any> {
+    return this.selectedMode.asObservable();
   }
 
   public get getIndividualView(): Observable<any> {
@@ -22,6 +27,10 @@ export class CountryDataService {
 
   public setIndividualView(isIndivualView: boolean) {
     this.individualView.next(isIndivualView);
+  }
+
+  public setSelectedMode(selectedMode: string) {
+    this.selectedMode.next(selectedMode);
   }
 
   public setSelectedCountries(type: 'all' | 'region' | 'name', query?: string) {

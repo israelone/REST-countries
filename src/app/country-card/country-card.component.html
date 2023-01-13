@@ -1,10 +1,16 @@
 <section (click)="setSelectedCountry()">
   <div><img [src]="countryData.flags.svg" /></div>
-  <div class="country-information-container">
+  <div
+    class="country-information-container"
+    [ngClass]="{
+      'dark-mode': selectedMode === 'dark',
+      'light-mode': selectedMode === 'light'
+    }"
+  >
     <h2>{{ countryData.name }}</h2>
     <h4>
       Population:
-      <span>{{ countryData.population | number: "1.0":"en-US" }}</span>
+      <span>{{ countryData.population | number : "1.0" : "en-US" }}</span>
     </h4>
     <h4>
       Region: <span>{{ countryData.region }}</span>

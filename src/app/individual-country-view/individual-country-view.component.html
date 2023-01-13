@@ -1,39 +1,46 @@
-<div><img [src]="countryData.flags.svg" /></div>
-<div class="country-information-container">
-  <h2>{{ countryData.name }}</h2>
-  <h4>
-    Native Name: <span>{{ countryData.nativeName }}</span>
-  </h4>
-  <h4>
-    Population:
-    <span>{{ countryData.population | number : "1.0" : "en-US" }}</span>
-  </h4>
-  <h4>
-    Region: <span>{{ countryData.region }}</span>
-  </h4>
-  <h4>
-    Sub Region: <span>{{ countryData.subregion }}</span>
-  </h4>
-  <h4>
-    Capital: <span>{{ countryData.capital }}</span>
-  </h4>
-  <br />
-  <h4>
-    Top Level Domain: <span>{{ countryData.topLevelDomain[0] }}</span>
-  </h4>
-  <h4>
-    Currencies:
-    <span>{{ separateValuesByComma(countryData.currencies) }}</span>
-  </h4>
-  <h4>
-    Languages:
-    <span>
-      {{ separateValuesByComma(countryData.languages) }}
-    </span>
-  </h4>
-  <br />
-  <h3>Border Countries:</h3>
-  <div class="border-countries">
-    <button *ngFor="let country of countryData.borders">{{ country }}</button>
+<div class="content">
+  <div class="flag-container"><img [src]="countryData.flags.svg" /></div>
+  <div class="country-information-container">
+    <h2>{{ countryData.name }}</h2>
+    <div class="flex-box">
+      <div>
+        <h4>
+          Native Name: <span>{{ countryData.nativeName }}</span>
+        </h4>
+        <h4>
+          Population:
+          <span>{{ countryData.population | number : "1.0" : "en-US" }}</span>
+        </h4>
+        <h4>
+          Region: <span>{{ countryData.region }}</span>
+        </h4>
+        <h4>
+          Sub Region: <span>{{ countryData.subregion }}</span>
+        </h4>
+        <h4>
+          Capital: <span>{{ countryData.capital }}</span>
+        </h4>
+      </div>
+
+      <div>
+        <h4>
+          Top Level Domain: <span>{{ countryData.topLevelDomain[0] }}</span>
+        </h4>
+        <h4>
+          Currencies:
+          <span>{{ separateValuesByComma(countryData.currencies) }}</span>
+        </h4>
+        <h4>
+          Languages:
+          <span>
+            {{ separateValuesByComma(countryData.languages) }}
+          </span>
+        </h4>
+      </div>
+    </div>
+    <div class="border-countries">
+      <span>Border Countries:</span>
+      <button *ngFor="let country of countryData.borders">{{ country }}</button>
+    </div>
   </div>
 </div>

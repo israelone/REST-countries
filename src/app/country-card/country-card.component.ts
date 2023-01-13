@@ -8,8 +8,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CountryCardComponent {
   @Input() countryData: any;
+  selectedMode: string = '';
 
   constructor(private countryDataService: CountryDataService) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.countryDataService.getSelectedMode
+      .pipe()
+      .subscribe((selectedMode: string) => {
+        this.selectedMode = selectedMode;
+      });
+  }
 
   setSelectedCountry() {
     this.countryDataService.setSelectedCountries('name', this.countryData.name);

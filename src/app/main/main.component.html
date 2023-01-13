@@ -1,4 +1,10 @@
-<section [ngClass]="{ individualView: individualView }">
+<section
+  [ngClass]="{
+    individualView: individualView,
+    'dark-mode-background': selectedMode === 'dark',
+    'light-mode-background': selectedMode === 'light'
+  }"
+>
   <ng-container *ngIf="individualView; else multipleView">
     <div>
       <div class="back-button-container">
@@ -10,16 +16,30 @@
     </div>
   </ng-container>
   <ng-template #multipleView>
-    <div>
-      <div class="search-input-container">
-        <i></i
-        ><input
+    <div class="inputs-container">
+      <div
+        class="search-input"
+        [ngClass]="{
+          individualView: individualView,
+          'dark-mode': selectedMode === 'dark',
+          'light-mode': selectedMode === 'light'
+        }"
+      >
+        <fa-icon icon="coffee"></fa-icon>
+        <input
           placeholder="Search for a country..."
           (input)="getCountriesByName($event.target)"
         />
       </div>
-      <div class="filter-container">
-        <div class="filter-label">
+      <div class="filter-input">
+        <div
+          class="filter-label"
+          [ngClass]="{
+            individualView: individualView,
+            'dark-mode': selectedMode === 'dark',
+            'light-mode': selectedMode === 'light'
+          }"
+        >
           <label for="countries">Filter by region:</label
           ><i (click)="showOptionsToggle()">Arrow</i>
         </div>
@@ -34,7 +54,13 @@
         </div>
       </div>
     </div>
-    <div class="countries-container" *ngFor="let country of countriesSelected">
-      <app-country-card [countryData]="country"></app-country-card></div
-  ></ng-template>
+    <div class="main-container">
+      <div
+        class="countries-container"
+        *ngFor="let country of countriesSelected"
+      >
+        <app-country-card [countryData]="country"></app-country-card>
+      </div>
+    </div>
+  </ng-template>
 </section>

@@ -1,5 +1,7 @@
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { CountryDataService } from './../service/country-data.service';
 import { Component, OnInit } from '@angular/core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +14,8 @@ export class MainComponent implements OnInit {
   regionSelection: string = '';
   searchByNameInput: string = '';
   individualView: boolean = false;
-
+  faCoffee = faCoffee;
+  selectedMode: string = '';
   constructor(private countryDataService: CountryDataService) {}
 
   async ngOnInit(): Promise<void> {
@@ -28,6 +31,12 @@ export class MainComponent implements OnInit {
       .pipe()
       .subscribe((isIndivualView) => {
         this.individualView = isIndivualView;
+      });
+
+    await this.countryDataService.getSelectedMode
+      .pipe()
+      .subscribe((selectedMode: string) => {
+        this.selectedMode = selectedMode;
       });
   }
 
