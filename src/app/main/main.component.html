@@ -43,15 +43,29 @@
           <label for="countries">Filter by region:</label
           ><i (click)="showOptionsToggle()">Arrow</i>
         </div>
-        <div [ngClass]="{ showOptions: !showOptions }" class="filter-options">
-          <ul (click)="selectOption($event.target)">
-            <li>Africa</li>
-            <li>Americas</li>
-            <li>Asia</li>
-            <li>Europe</li>
-            <li>Oceania</li>
-          </ul>
-        </div>
+        <ng-container *ngIf="showOptions">
+          <div
+            class="filter-options"
+            [ngClass]="{
+              'dark-mode': selectedMode === 'dark',
+              'light-mode': selectedMode === 'light'
+            }"
+          >
+            <ul
+              (click)="selectOption($event.target)"
+              [ngClass]="{
+                'dark-mode': selectedMode === 'dark',
+                'light-mode': selectedMode === 'light'
+              }"
+            >
+              <li>Africa</li>
+              <li>Americas</li>
+              <li>Asia</li>
+              <li>Europe</li>
+              <li>Oceania</li>
+            </ul>
+          </div></ng-container
+        >
       </div>
     </div>
     <div class="main-container">

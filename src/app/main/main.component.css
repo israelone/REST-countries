@@ -34,7 +34,6 @@ input:focus-visible {
 }
 
 .filter-options {
-  background-color: white;
   position: relative;
   top: 6px;
   width: 76%;
@@ -65,10 +64,6 @@ li:hover {
   height: 100%;
   padding: 0px 31px;
   justify-content: space-between;
-}
-
-.showOptions {
-  display: none;
 }
 
 button {
@@ -125,5 +120,7 @@ button {
 
   .individualView {
     padding: 90px 80px;
+    height: calc(100% - 78px);
+    box-sizing: border-box;
   }
 }

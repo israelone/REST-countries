@@ -17,4 +17,10 @@ export class NavBarComponent implements OnInit {
         this.selectedMode = selectedMode;
       });
   }
+
+  setThemeMode() {
+    this.countryDataService.setSelectedMode(
+      this.selectedMode === 'dark' ? 'light' : 'dark'
+    );
+  }
 }

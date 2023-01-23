@@ -52,6 +52,7 @@ export class MainComponent implements OnInit {
 
   goBackToMultipleView() {
     this.countryDataService.setIndividualView(false);
+    this.getCountriesByRegion();
   }
 
   async getCountriesByRegion() {
