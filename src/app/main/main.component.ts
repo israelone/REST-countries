@@ -1,4 +1,10 @@
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import { Icon, IconProp } from '@fortawesome/fontawesome-svg-core';
+import {
+  faAngleDown,
+  faArrowLeftLong,
+  faMagnifyingGlass,
+  faMoon,
+} from '@fortawesome/free-solid-svg-icons';
 import { CountryDataService } from './../service/country-data.service';
 import { Component, OnInit } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +22,11 @@ export class MainComponent implements OnInit {
   individualView: boolean = false;
   faCoffee = faCoffee;
   selectedMode: string = '';
+
+  leftArrowIcon = faArrowLeftLong as IconProp;
+
+  arrowDownIcon = faAngleDown as IconProp;
+  magnifyingGlassIcon = faMagnifyingGlass as IconProp;
   constructor(private countryDataService: CountryDataService) {}
 
   async ngOnInit(): Promise<void> {

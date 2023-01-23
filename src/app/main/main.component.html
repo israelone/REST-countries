@@ -8,7 +8,10 @@
   <ng-container *ngIf="individualView; else multipleView">
     <div>
       <div class="back-button-container">
-        <button (click)="goBackToMultipleView()">Back</button>
+        <button (click)="goBackToMultipleView()">
+          <fa-icon [icon]="leftArrowIcon"></fa-icon>
+          <span>Back</span>
+        </button>
       </div>
     </div>
     <div class="individual-country-container">
@@ -22,11 +25,18 @@
         [ngClass]="{
           individualView: individualView,
           'dark-mode': selectedMode === 'dark',
-          'light-mode': selectedMode === 'light'
+          'light-mode': selectedMode === 'light',
+          'dark-mode-shadow': selectedMode === 'dark',
+          'light-mode-shadow': selectedMode === 'light'
         }"
       >
-        <fa-icon icon="coffee"></fa-icon>
+        <i><fa-icon [icon]="magnifyingGlassIcon" size="lg"></fa-icon></i>
         <input
+          [ngClass]="{
+            individualView: individualView,
+            'dark-mode-text': selectedMode === 'dark',
+            'light-mode-text': selectedMode === 'light'
+          }"
           placeholder="Search for a country..."
           (input)="getCountriesByName($event.target)"
         />
@@ -37,18 +47,25 @@
           [ngClass]="{
             individualView: individualView,
             'dark-mode': selectedMode === 'dark',
-            'light-mode': selectedMode === 'light'
+            'light-mode': selectedMode === 'light',
+            'dark-mode-shadow': selectedMode === 'dark',
+            'light-mode-shadow': selectedMode === 'light'
           }"
         >
           <label for="countries">Filter by region:</label
-          ><i (click)="showOptionsToggle()">Arrow</i>
+          ><fa-icon
+            (click)="showOptionsToggle()"
+            [icon]="arrowDownIcon"
+          ></fa-icon>
         </div>
         <ng-container *ngIf="showOptions">
           <div
             class="filter-options"
             [ngClass]="{
               'dark-mode': selectedMode === 'dark',
-              'light-mode': selectedMode === 'light'
+              'light-mode': selectedMode === 'light',
+              'dark-mode-shadow': selectedMode === 'dark',
+              'light-mode-shadow': selectedMode === 'light'
             }"
           >
             <ul

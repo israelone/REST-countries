@@ -1,11 +1,13 @@
 <nav
   [ngClass]="{
     'dark-mode': selectedMode === 'dark',
-    'light-mode': selectedMode === 'light'
+    'light-mode': selectedMode === 'light',
+    'dark-mode-shadow': selectedMode === 'dark',
+    'light-mode-shadow': selectedMode === 'light'
   }"
 >
   <span class="title">Where in the world?</span>
   <span class="mode" (click)="setThemeMode()">
-    <i class="fa-regular fa-moon"></i><span>Dark Mode</span>
+    <fa-icon [icon]="moonIcon"></fa-icon><span>Dark Mode</span>
   </span>
 </nav>

@@ -1,4 +1,10 @@
-<section (click)="setSelectedCountry()">
+<section
+  (click)="setSelectedCountry()"
+  [ngClass]="{
+    'dark-mode-shadow': selectedMode === 'dark',
+    'light-mode-shadow': selectedMode === 'light'
+  }"
+>
   <div><img [src]="countryData.flags.svg" /></div>
   <div
     class="country-information-container"
