@@ -8,6 +8,7 @@ import { CountryDataService } from '../service/country-data.service';
 })
 export class IndividualCountryViewComponent implements OnInit {
   countryData: any;
+  selectedMode: string = '';
   constructor(private countryDataService: CountryDataService) {}
 
   async ngOnInit(): Promise<void> {
@@ -15,7 +16,11 @@ export class IndividualCountryViewComponent implements OnInit {
       .pipe()
       .subscribe((country: any) => {
         this.countryData = country[0];
-        console.log(this.countryData);
+      });
+    await this.countryDataService.getSelectedMode
+      .pipe()
+      .subscribe((selectedMode: string) => {
+        this.selectedMode = selectedMode;
       });
   }
 

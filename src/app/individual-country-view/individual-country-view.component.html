@@ -1,4 +1,12 @@
-<div class="content">
+<div
+  class="content"
+  [ngClass]="{
+    'dark-mode-background': selectedMode === 'dark',
+    'dark-mode-text': selectedMode === 'dark',
+    'light-mode-background': selectedMode === 'light',
+    'light-mode-text': selectedMode === 'light'
+  }"
+>
   <div class="flag-container"><img [src]="countryData.flags.svg" /></div>
   <div class="country-information-container">
     <h2>{{ countryData.name }}</h2>
