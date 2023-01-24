@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryDataService } from '../service/country-data.service';
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-individual-country-view',
@@ -9,6 +11,7 @@ import { CountryDataService } from '../service/country-data.service';
 export class IndividualCountryViewComponent implements OnInit {
   countryData: any;
   selectedMode: string = '';
+  leftArrowIcon = faArrowLeftLong as IconProp;
   constructor(private countryDataService: CountryDataService) {}
 
   async ngOnInit(): Promise<void> {
@@ -34,5 +37,9 @@ export class IndividualCountryViewComponent implements OnInit {
     }
 
     return values[0].name;
+  }
+
+  backToMultipleView() {
+    this.countryDataService.setIndividualView(false);
   }
 }

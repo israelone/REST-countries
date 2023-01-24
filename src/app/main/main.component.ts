@@ -1,13 +1,5 @@
-import { Icon, IconProp } from '@fortawesome/fontawesome-svg-core';
-import {
-  faAngleDown,
-  faArrowLeftLong,
-  faMagnifyingGlass,
-  faMoon,
-} from '@fortawesome/free-solid-svg-icons';
 import { CountryDataService } from './../service/country-data.service';
 import { Component, OnInit } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
@@ -19,14 +11,9 @@ export class MainComponent implements OnInit {
   showOptions: boolean = false;
   regionSelection: string = '';
   searchByNameInput: string = '';
-  individualView: boolean = false;
-  faCoffee = faCoffee;
+  individualView: boolean | undefined;
   selectedMode: string = '';
 
-  leftArrowIcon = faArrowLeftLong as IconProp;
-
-  arrowDownIcon = faAngleDown as IconProp;
-  magnifyingGlassIcon = faMagnifyingGlass as IconProp;
   constructor(private countryDataService: CountryDataService) {}
 
   async ngOnInit(): Promise<void> {
@@ -38,6 +25,7 @@ export class MainComponent implements OnInit {
       });
 
     this.countryDataService.setSelectedCountries('all');
+
     await this.countryDataService.getIndividualView
       .pipe()
       .subscribe((isIndivualView) => {
@@ -48,34 +36,6 @@ export class MainComponent implements OnInit {
       .pipe()
       .subscribe((selectedMode: string) => {
         this.selectedMode = selectedMode;
-      });
-  }
-
-  showOptionsToggle() {
-    this.showOptions = !this.showOptions;
-  }
-
-  selectOption(event: any) {
-    this.regionSelection = event.innerText.toLowerCase();
-    this.showOptionsToggle();
-    this.getCountriesByRegion();
-  }
-
-  goBackToMultipleView() {
-    this.countryDataService.setIndividualView(false);
-    this.getCountriesByRegion();
-  }
-
-  async getCountriesByRegion() {
-    this.countryDataService.setSelectedCountries(
-      'region',
-      this.regionSelection
-    );
-    await this.countryDataService.getSelectedCountries
-      .pipe()
-      .subscribe((countries) => {
-        console.log(countries);
-        this.countriesSelected = countries;
       });
   }
 

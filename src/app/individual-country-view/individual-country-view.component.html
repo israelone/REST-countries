@@ -1,5 +1,28 @@
+<div>
+  <div
+    class="back-button-container"
+    [ngClass]="{
+      'dark-mode-shadow': selectedMode === 'dark',
+      'light-mode-shadow': selectedMode === 'light'
+    }"
+  >
+    <button
+      (click)="backToMultipleView()"
+      [ngClass]="{
+        'dark-mode': selectedMode === 'dark',
+        'light-mode': selectedMode === 'light',
+        'dark-mode-text': selectedMode === 'dark',
+        'light-mode-text': selectedMode === 'light'
+      }"
+    >
+      <fa-icon [icon]="leftArrowIcon"></fa-icon>
+      <span>Back</span>
+    </button>
+  </div>
+</div>
+
 <div
-  class="content"
+  class="content individual-country-container"
   [ngClass]="{
     'dark-mode-background': selectedMode === 'dark',
     'dark-mode-text': selectedMode === 'dark',

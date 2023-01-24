@@ -1,0 +1,110 @@
+.search-input {
+  width: 89vw;
+  margin: 20px auto;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.filter-label fa-icon {
+  cursor: pointer;
+}
+
+.filter-input {
+  width: 53vw;
+  margin: 20px 35px 50px 0;
+  height: 70px;
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 100%);
+  align-items: center;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  font-family: "Nunito Sans";
+  height: 100%;
+  width: 100%;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.filter-options {
+  position: relative;
+  top: 6px;
+  padding: 40px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  cursor: pointer;
+  margin: 8px 0;
+  font-weight: 800;
+}
+
+li:hover {
+  background-color: rgb(215 215 215);
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0px 31px;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+input::placeholder {
+  color: inherit;
+}
+
+@media screen and (min-width: 992px) {
+  .inputs-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  section {
+    padding: 40px 80px;
+    min-height: calc(100% - 159px);
+  }
+
+  .search-input {
+    padding: 0 25px;
+    width: 34vw;
+    margin: 0;
+  }
+
+  .filter-input {
+    width: 12vw;
+    margin: 0;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+}

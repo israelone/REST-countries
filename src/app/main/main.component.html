@@ -1,111 +1,14 @@
 <section
   [ngClass]="{
-    individualView: individualView,
+    'individual-view': individualView,
     'dark-mode-background': selectedMode === 'dark',
     'light-mode-background': selectedMode === 'light'
   }"
 >
   <ng-container *ngIf="individualView; else multipleView">
-    <div>
-      <div
-        class="back-button-container"
-        [ngClass]="{
-          'dark-mode-shadow': selectedMode === 'dark',
-          'light-mode-shadow': selectedMode === 'light'
-        }"
-      >
-        <button
-          (click)="goBackToMultipleView()"
-          [ngClass]="{
-            'dark-mode': selectedMode === 'dark',
-            'light-mode': selectedMode === 'light',
-            'dark-mode-text': selectedMode === 'dark',
-            'light-mode-text': selectedMode === 'light'
-          }"
-        >
-          <fa-icon [icon]="leftArrowIcon"></fa-icon>
-          <span>Back</span>
-        </button>
-      </div>
-    </div>
-    <div class="individual-country-container">
-      <app-individual-country-view> </app-individual-country-view>
-    </div>
+    <app-individual-country-view></app-individual-country-view>
   </ng-container>
-  <ng-template #multipleView>
-    <div class="inputs-container">
-      <div
-        class="search-input"
-        [ngClass]="{
-          individualView: individualView,
-          'dark-mode': selectedMode === 'dark',
-          'light-mode': selectedMode === 'light',
-          'dark-mode-shadow': selectedMode === 'dark',
-          'light-mode-shadow': selectedMode === 'light'
-        }"
-      >
-        <i><fa-icon [icon]="magnifyingGlassIcon" size="lg"></fa-icon></i>
-        <input
-          [ngClass]="{
-            individualView: individualView,
-            'dark-mode-text': selectedMode === 'dark',
-            'light-mode-text': selectedMode === 'light'
-          }"
-          placeholder="Search for a country..."
-          (input)="getCountriesByName($event.target)"
-        />
-      </div>
-      <div class="filter-input">
-        <div
-          class="filter-label"
-          [ngClass]="{
-            individualView: individualView,
-            'dark-mode': selectedMode === 'dark',
-            'light-mode': selectedMode === 'light',
-            'dark-mode-shadow': selectedMode === 'dark',
-            'light-mode-shadow': selectedMode === 'light'
-          }"
-        >
-          <span for="countries">Filter by region:</span
-          ><fa-icon
-            (click)="showOptionsToggle()"
-            [icon]="arrowDownIcon"
-          ></fa-icon>
-        </div>
-        <ng-container *ngIf="showOptions">
-          <div
-            class="filter-options"
-            [ngClass]="{
-              'dark-mode': selectedMode === 'dark',
-              'light-mode': selectedMode === 'light',
-              'dark-mode-shadow': selectedMode === 'dark',
-              'light-mode-shadow': selectedMode === 'light'
-            }"
-          >
-            <ul
-              (click)="selectOption($event.target)"
-              [ngClass]="{
-                'dark-mode': selectedMode === 'dark',
-                'light-mode': selectedMode === 'light'
-              }"
-            >
-              <li>Africa</li>
-              <li>Americas</li>
-              <li>Asia</li>
-              <li>Europe</li>
-              <li>Oceania</li>
-            </ul>
-          </div></ng-container
-        >
-      </div>
-    </div>
-    <div class="main-container">
-      <div
-        class="countries-container"
-        *ngFor="let country of countriesSelected"
-      >
-        <app-country-card [countryData]="country"></app-country-card>
-      </div>
-    </div>
+  <ng-template #multipleView
+    ><app-multiple-country-view></app-multiple-country-view>
   </ng-template>
 </section>
