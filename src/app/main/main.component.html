@@ -7,8 +7,22 @@
 >
   <ng-container *ngIf="individualView; else multipleView">
     <div>
-      <div class="back-button-container">
-        <button (click)="goBackToMultipleView()">
+      <div
+        class="back-button-container"
+        [ngClass]="{
+          'dark-mode-shadow': selectedMode === 'dark',
+          'light-mode-shadow': selectedMode === 'light'
+        }"
+      >
+        <button
+          (click)="goBackToMultipleView()"
+          [ngClass]="{
+            'dark-mode': selectedMode === 'dark',
+            'light-mode': selectedMode === 'light',
+            'dark-mode-text': selectedMode === 'dark',
+            'light-mode-text': selectedMode === 'light'
+          }"
+        >
           <fa-icon [icon]="leftArrowIcon"></fa-icon>
           <span>Back</span>
         </button>
@@ -52,7 +66,7 @@
             'light-mode-shadow': selectedMode === 'light'
           }"
         >
-          <label for="countries">Filter by region:</label
+          <span for="countries">Filter by region:</span
           ><fa-icon
             (click)="showOptionsToggle()"
             [icon]="arrowDownIcon"

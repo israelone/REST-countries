@@ -48,7 +48,17 @@
     </div>
     <div class="border-countries">
       <span>Border Countries:</span>
-      <button *ngFor="let country of countryData.borders">{{ country }}</button>
+      <div class="countries">
+        <button
+          *ngFor="let country of countryData.borders"
+          [ngClass]="{
+            'dark-mode-shadow': selectedMode === 'dark',
+            'light-mode-shadow': selectedMode === 'light'
+          }"
+        >
+          {{ country }}
+        </button>
+      </div>
     </div>
   </div>
 </div>
