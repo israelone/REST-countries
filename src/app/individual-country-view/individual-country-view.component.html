@@ -76,7 +76,9 @@
           *ngFor="let country of countryData.borders"
           [ngClass]="{
             'dark-mode-shadow': selectedMode === 'dark',
-            'light-mode-shadow': selectedMode === 'light'
+            'light-mode-shadow': selectedMode === 'light',
+            'dark-mode': selectedMode === 'dark',
+            'light-mode': selectedMode === 'light'
           }"
         >
           {{ country }}

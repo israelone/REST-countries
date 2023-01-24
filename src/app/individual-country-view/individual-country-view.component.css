@@ -21,14 +21,6 @@ button {
   display: inline-block;
 }
 
-.light-mode-text {
-  color: hsl(200, 15%, 8%);
-}
-
-.dark-mode-text {
-  color: hsl(0, 0%, 100%);
-}
-
 .country-information-container {
   margin-top: 60px;
 }
